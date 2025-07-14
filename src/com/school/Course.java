@@ -10,6 +10,6 @@ public class Course {
   }
 
   public void displayDetails() {
-    System.out.println("Student ID: " + this.courseId + ", Name: " + this.name);
+    System.out.println("Course ID: " + this.courseId + ", Name: " + this.name);
   }
 }
