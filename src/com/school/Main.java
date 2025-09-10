@@ -44,6 +44,6 @@ public class Main {
       record.displayRecord();
     }
 
-    System.out.println("\nSession 4: Data Encapsulation & Attendance Recording Complete.");
+    System.out.println("\nSession 5: Inheritance Hierarchy Complete.");
   }
 }
