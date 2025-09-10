@@ -7,16 +7,18 @@ public class Main {
   public static void main(String[] args) {
     System.out.println("--- School Attendance System ---");
 
-    // Using constructors for initialization
-    System.out.println("\nCreating Students and Courses using Constructors:");
-    Student student1 = new Student("Alice Wonderland");
-    Student student2 = new Student("Bob The Builder");
+    Student student1 = new Student("Alice Wonderland", "10th Grade");
+    Student student2 = new Student("Bob The Builder", "9th Grade");
+    Teacher teacher1 = new Teacher("Mr. Smith", "Mathematics");
+    Staff staff1 = new Staff("Mrs. Johnson", "Administrator");
 
     Course course1 = new Course("Intro to Programming");
 
-    System.out.println("\nRegistered Students:");
+    System.out.println("\nRegistered People:");
     student1.displayDetails();
     student2.displayDetails();
+    teacher1.displayDetails();
+    staff1.displayDetails();
 
     System.out.println("\nAvailable Courses:");
     course1.displayDetails();
@@ -25,20 +27,16 @@ public class Main {
     System.out.println("\n--- Attendance Recording ---");
     List<AttendanceRecord> attendanceLog = new ArrayList<>();
 
-    // Record valid attendance
-    AttendanceRecord record1 = new AttendanceRecord(student1.getStudentId(), course1.getCourseId(), "Present");
+    // Record valid attendance using student.getId()
+    AttendanceRecord record1 = new AttendanceRecord(student1.getId(), course1.getCourseId(), "Present");
     attendanceLog.add(record1);
 
-    // Attempt to record invalid attendance status
-    AttendanceRecord record2 = new AttendanceRecord(student2.getStudentId(), course1.getCourseId(), "Late");
-    attendanceLog.add(record2); // Will be stored as "Invalid"
+    // Invalid attendance status
+    AttendanceRecord record2 = new AttendanceRecord(student2.getId(), course1.getCourseId(), "Late");
+    attendanceLog.add(record2);
 
-    // Record another valid attendance
-    AttendanceRecord record3 = new AttendanceRecord(student2.getStudentId(), course1.getCourseId(), "Absent");
-    // We'll update record2's student for this scenario (or make a new student for
-    // course1)
-    // For simplicity, let's assume student2 also takes course1 and we are just
-    // making a new record.
+    // Another valid attendance
+    AttendanceRecord record3 = new AttendanceRecord(student2.getId(), course1.getCourseId(), "Absent");
     attendanceLog.add(record3);
 
     System.out.println("\n--- Attendance Log ---");
