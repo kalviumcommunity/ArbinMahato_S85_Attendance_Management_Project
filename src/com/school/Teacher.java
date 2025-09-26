@@ -1,16 +1,25 @@
 package com.school;
 
-public class Teacher extends Person {
-  private String subjectTaught;
+public class Teacher extends Person implements Storable {
+  private String subject;
 
-  public Teacher(String name, String subjectTaught) {
+  public Teacher(String name, String subject) {
     super(name);
-    this.subjectTaught = subjectTaught;
+    this.subject = subject;
+  }
+
+  public String getSubject() {
+    return subject;
   }
 
   @Override
   public void displayDetails() {
     super.displayDetails();
-    System.out.println("Subject Taught: " + subjectTaught + ", Role: Teacher");
+    System.out.println(", Subject: " + subject + " (Role: Teacher)");
+  }
+
+  @Override
+  public String toDataString() {
+    return getId() + "," + getName() + "," + subject;
   }
 }
