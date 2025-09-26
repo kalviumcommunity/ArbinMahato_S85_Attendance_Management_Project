@@ -1,12 +1,14 @@
 package com.school;
 
 public class Person {
-    private static final java.util.concurrent.atomic.AtomicInteger nextId = new java.util.concurrent.atomic.AtomicInteger(1);
-    private int id;
-    private String name;
+    private static int nextIdCounter = 1; // Universal ID counter
+
+    protected int id; // Changed to protected for derived class access if needed, or keep private and
+                      // use super()
+    protected String name;
 
     public Person(String name) {
-        this.id = nextId++;
+        this.id = nextIdCounter++;
         this.name = name;
     }
 
@@ -19,6 +21,6 @@ public class Person {
     }
 
     public void displayDetails() {
-        System.out.println("ID: " + id + ", Name: " + name);
+        System.out.print("ID: " + id + ", Name: " + name);
     }
 }
